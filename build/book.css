@@ -1,0 +1,449 @@
+/* ============================================================
+   《Java 后端故障图鉴》印刷样式
+   页面 170×240mm（接近 16 开偏瘦），正文 132mm 宽
+   由 paginate.js 在浏览器里分页，Chrome 打印成 PDF
+   ============================================================ */
+
+@page {
+    size: 170mm 240mm;
+    margin: 0;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-family: "SimSun", "宋体", "Songti SC", serif;
+    color: #1c1c1c;
+}
+
+/* ---------------- 页面骨架 ---------------- */
+
+.page {
+    position: relative;
+    width: 170mm;
+    height: 239.7mm;
+    overflow: hidden;
+    background: #fff;
+    break-after: page;
+    page-break-after: always;
+}
+
+.page:last-child {
+    break-after: auto;
+    page-break-after: auto;
+}
+
+.page-head {
+    position: absolute;
+    left: 19mm;
+    right: 19mm;
+    top: 11mm;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+    font-size: 7.4pt;
+    letter-spacing: .06em;
+    color: #9aa3ab;
+    padding-bottom: 1.6mm;
+    border-bottom: .4pt solid #e6e9ec;
+}
+
+.page-head .ph-r { max-width: 78mm; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+
+.no-head .page-head { display: none; }
+
+.page-body {
+    position: absolute;
+    left: 19mm;
+    right: 19mm;
+    top: 21mm;
+    bottom: 17mm;
+    overflow: hidden;
+}
+
+.no-head .page-body { top: 17mm; }
+
+.page-foot {
+    position: absolute;
+    left: 19mm;
+    right: 19mm;
+    bottom: 8.5mm;
+    text-align: center;
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size: 8.6pt;
+    color: #7c858d;
+}
+
+/* ---------------- 封面 B：极简·留白 ---------------- */
+
+.cover {
+    background: #f7f4ec;          /* 暖白纸张底 */
+    color: #1a1a1a;
+}
+
+/* 左侧砖红竖条 */
+.cv-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 15mm;
+    background: #9e2b25;
+}
+
+/* 大量留白：内容块靠上偏中、留出呼吸空间 */
+.cv-wrap {
+    position: absolute;
+    left: 39mm;
+    right: 24mm;
+    top: 48mm;
+}
+
+.cv-top {
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size: 7.5pt;
+    letter-spacing: .3em;
+    color: #9e2b25;
+    margin-bottom: 31mm;          /* 留白 */
+}
+
+.cv-title {
+    font-family: "SimSun", "宋体", "Songti SC", serif;   /* 宋体黑标题 */
+    font-weight: 700;
+    font-size: 41pt;
+    line-height: 1.24;
+    letter-spacing: .05em;
+    color: #17120e;               /* 近黑 */
+    margin: 0 0 8.5mm;
+}
+
+.cv-sub {
+    font-family: "SimSun", "宋体", serif;
+    font-size: 12pt;
+    line-height: 1.95;
+    color: #46403a;
+    letter-spacing: .02em;
+}
+
+.cv-rule {
+    width: 21mm;
+    height: 2pt;
+    background: #9e2b25;
+    margin: 13mm 0 7mm;
+}
+
+.cv-desc {
+    font-family: "SimSun", "宋体", serif;
+    font-size: 9.5pt;
+    color: #6f675c;
+    letter-spacing: .08em;
+}
+
+.cv-meta {
+    position: absolute;
+    left: 39mm;
+    bottom: 17mm;
+    font-family: "SimSun", "宋体", serif;
+    font-size: 9pt;
+    color: #8a8074;
+    letter-spacing: .14em;
+}
+
+/* ---------------- 章首 ---------------- */
+
+.chapter-start {
+    padding-top: 3mm;
+    margin-bottom: 7mm;
+}
+
+.ch-kicker {
+    font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+    font-size: 8.2pt;
+    letter-spacing: .22em;
+    color: #8d7a4e;
+    margin-bottom: 4mm;
+}
+
+.ch-title,
+.fm-title {
+    font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+    font-weight: 700;
+    font-size: 21pt;
+    line-height: 1.45;
+    letter-spacing: .01em;
+    color: #16222c;
+    margin: 0;
+}
+
+.ch-rule {
+    width: 18mm;
+    height: 1pt;
+    background: #c6a04a;
+    margin: 5mm 0 0;
+}
+
+.fm-title { margin-bottom: 0; }
+
+/* ---------------- 标题层级 ---------------- */
+
+h2 {
+    font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+    font-weight: 700;
+    font-size: 13.2pt;
+    line-height: 1.5;
+    color: #16222c;
+    margin: 7.5mm 0 3mm;
+    padding-left: 3mm;
+    border-left: 2.2pt solid #c6a04a;
+}
+
+h3 {
+    font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+    font-weight: 700;
+    font-size: 10.6pt;
+    line-height: 1.55;
+    color: #2b3a45;
+    margin: 5mm 0 2mm;
+}
+
+/* ---------------- 正文 ---------------- */
+
+p {
+    font-size: 10.3pt;
+    line-height: 1.78;
+    margin: 0 0 2.1mm;
+    text-align: justify;
+    text-indent: 2em;
+    word-break: normal;
+    overflow-wrap: break-word;
+}
+
+strong {
+    font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+    font-weight: 700;
+    font-size: 9.6pt;
+    color: #10202c;
+}
+
+em { font-style: normal; color: #6b4b18; }
+
+del { color: #8a8a8a; }
+
+a { color: #1f4e79; text-decoration: none; }
+
+code {
+    font-family: "Consolas", "Cascadia Mono", "SimSun", monospace;
+    font-size: 8.9pt;
+    color: #a03a5b;
+    background: #f6f6f8;
+    padding: 0 .6mm;
+    border-radius: .6mm;
+}
+
+.mk { font-family: "Microsoft YaHei", sans-serif; font-weight: 700; font-size: 9.6pt; }
+.mk.bad { color: #b33a3a; }
+.mk.good { color: #1c7a4a; }
+.mk.warn { color: #b8860b; }
+
+/* ---------------- 代码 ---------------- */
+
+pre.code {
+    font-family: "Consolas", "Cascadia Mono", "SimSun", monospace;
+    font-size: 8.05pt;
+    line-height: 1.5;
+    background: #f7f8fa;
+    border-left: 2.2pt solid #b7c3cf;
+    padding: 2.6mm 3mm 2.2mm;
+    margin: 2.2mm 0 3mm;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    color: #23303a;
+    break-inside: avoid;
+}
+
+pre.code .cl { display: block; min-height: 1em; }
+
+pre.code.cont { border-left-style: dashed; }
+
+/* ---------------- 表格 ---------------- */
+
+table.tbl {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+    font-size: 8.2pt;
+    line-height: 1.55;
+    margin: 2.4mm 0 3.2mm;
+    border-top: .8pt solid #97a6b3;
+    border-bottom: .8pt solid #97a6b3;
+}
+
+table.tbl th {
+    background: #eef1f4;
+    font-weight: 700;
+    color: #16222c;
+    text-align: left;
+    padding: 1.6mm 1.8mm;
+    border-bottom: .5pt solid #c3ccd5;
+}
+
+table.tbl td {
+    text-align: left;
+    padding: 1.5mm 1.8mm;
+    border-bottom: .4pt solid #e2e7ec;
+    vertical-align: top;
+    overflow-wrap: break-word;
+}
+
+table.tbl tr:last-child td { border-bottom: none; }
+
+table.tbl td.center, table.tbl th.center { text-align: center; }
+table.tbl td.right, table.tbl th.right { text-align: right; }
+
+table.tbl code { font-size: 7.8pt; background: none; padding: 0; }
+
+/* ---------------- 引用 ---------------- */
+
+blockquote.quote {
+    margin: 2.6mm 0 3.2mm;
+    padding: 2.6mm 4mm;
+    background: #faf8f3;
+    border-left: 2.2pt solid #c6a04a;
+    font-size: 9.5pt;
+    line-height: 1.72;
+    color: #4b4740;
+}
+
+blockquote.quote p {
+    text-align: left;
+    font-size: 9.5pt;
+    text-indent: 0;
+    margin: 0 0 1.4mm;
+}
+
+blockquote.quote p:last-child { margin-bottom: 0; }
+
+/* ---------------- 列表 ---------------- */
+
+ul.list, ol.list {
+    margin: 1.6mm 0 2.6mm;
+    padding-left: 6.5mm;
+}
+
+ul.list li, ol.list li {
+    font-size: 10.1pt;
+    line-height: 1.72;
+    margin-bottom: 1.1mm;
+    /* 不用两端对齐：行内代码是不可断的长 token，会把中文字距拉花 */
+    text-align: left;
+}
+
+ul.list li::marker { color: #c6a04a; }
+
+ul.sub {
+    margin: .8mm 0 .8mm;
+    padding-left: 5mm;
+    list-style: circle;
+}
+
+ul.sub li { font-size: 9.6pt; }
+
+hr.sep {
+    border: none;
+    height: 1mm;
+    margin: 5mm 0;
+    background: radial-gradient(circle, #c6a04a 0 .55mm, transparent .6mm) center / 4.5mm 1mm repeat-x;
+}
+
+/* ---------------- 目录 ---------------- */
+
+.toc-head { margin-bottom: 6mm; }
+
+.toc-kicker {
+    font-family: "Georgia", serif;
+    font-size: 7pt;
+    letter-spacing: .34em;
+    color: #b09455;
+    margin-bottom: 3mm;
+}
+
+.toc-title {
+    font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+    font-size: 20pt;
+    font-weight: 700;
+    color: #16222c;
+    margin: 0;
+}
+
+.toc-vol {
+    font-family: "Microsoft YaHei", sans-serif;
+    font-size: 8.6pt;
+    letter-spacing: .18em;
+    color: #8d7a4e;
+    margin: 5mm 0 2.4mm;
+    padding-bottom: 1.2mm;
+    border-bottom: .4pt solid #e6e9ec;
+}
+
+.toc-entry {
+    display: flex;
+    align-items: baseline;
+    font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+}
+
+.toc-entry.l1 {
+    font-size: 10.2pt;
+    font-weight: 700;
+    color: #16222c;
+    margin-top: 1.6mm;
+}
+
+.toc-entry.l2 {
+    font-size: 9.1pt;
+    color: #46525c;
+    padding-left: 7mm;
+    margin-top: 1.05mm;
+}
+
+.toc-lead {
+    flex: 1 1 auto;
+    margin: 0 2mm;
+    border-bottom: .5pt dotted #b9c0c7;
+    transform: translateY(-1.1mm);
+}
+
+.toc-pg {
+    font-family: "Georgia", serif;
+    font-size: 8.8pt;
+    color: #5b656d;
+    min-width: 6mm;
+    text-align: right;
+}
+
+.toc-entry.l1 .toc-pg { font-weight: 700; color: #16222c; }
+
+/* ---------------- 测量容器 ---------------- */
+
+#flow-front, #flow-body {
+    position: absolute;
+    left: -9999mm;
+    top: 0;
+    width: 132mm;
+}
+
+#stage {
+    position: absolute;
+    left: -9999mm;
+    top: 0;
+    width: 170mm;
+}
+
+/* 单页预览（?p=N 时只看某一页） */
+body.single .page { display: none; }
+body.single .page.keep { display: block; }
